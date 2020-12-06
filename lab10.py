@@ -1,12 +1,18 @@
 def menu():
     while(True):
-        CHOICE=input("Enter your choice:\n1.Show Ip Details\n2.show your DNS details\n")
-        if (CHOICE == "1"):
-            IP_SHOW()
-        elif (CHOICE == "2"):
-            print(CHOICE)
+        YES_NO = input("Would you like to continue? y/n")
+        if (YES_NO == "y"):
+            continue
         else:
-            print("Chosse 1 or 2 only!!!")
+            break
+        while(True):
+            CHOICE=input("Enter your choice:\n1.Show Ip Details\n2.show your DNS details\n")
+            if (CHOICE == "1"):
+                IP_SHOW()
+            elif (CHOICE == "2"):
+                DNS_SHOW()
+            else:
+                print("Chosse 1 or 2 only!!!")
 
 
 
@@ -41,15 +47,24 @@ def DNS_SHOW():
     MY_DICT={}
     while(True):
         DNS=input("Enter a web DNS:\n")
-        ADD=input("Enter Ip adrsress of site:\n")
-        MY_DICT["DNS"]=[ADD]
-        print(MY_DICT)
+        ADD=str(input("Enter Ip adrsress of site:\n"))
+        if ADD in MY_DICT.values():
+            print("wow")
+        else:
+            MY_DICT[DNS] = [ADD]
+            print(MY_DICT)
+        YES_NO = input("Would you like to continue? y/n")
+        if (YES_NO == "y"):
+            continue
+        else:
+            break
+
+while(True):
+    YES_NO = input("Would you like to continue? y/n")
+    if (YES_NO == "y"):
+        continue
+    else:
+        break
+    menu()
 
 
-
-
-
-
-
-IP_LIST=[]
-menu()
